@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Eleve")
-public class Eleve implements Serializable {
+public class User implements Serializable {
 
 	
 
@@ -23,22 +23,33 @@ public class Eleve implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 
 	private long id;
-	
 
-	private String nom;
 	
+	//private String username;
+	
+	
+	private String nom;
+
 	
 	private String prenom;
-	
-	
-	private String date_naissance;
-	
-	
-	private Classe classe;
 
+		
+	
+	private String email;
+
+	
+	
+	private String password;
+	
+	
+	
+	private int profil;
+
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
@@ -49,51 +60,76 @@ public class Eleve implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	/*
+	@Column(name="username")
+	public String getUsername() {
+		return username;
+	}
 
 	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+*/
 	
-    @Column(name="Prenom")
+	 @Column(name="Prenom")
 	public String getPrenom() {
 		return prenom;
 	}
 
-	
+		
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
-	
-	
+		
 	@Column(name="Nom")
 	public String getNom() {
 		return nom;
 	}
-
-
+	
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-	@Column(name="Date_naissance")
-	
-	public String getDate_naissance() {
-		return date_naissance;
-	}
-
-
-	public void setDate_naissance(String date_naissance) {
-		this.date_naissance = date_naissance;
-	}
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "Classe")
-	public Classe getClasse() {
-		return classe;
+	
+	@Column(name="email")
+	public String getEmail() {
+		return email;
 	}
 
-	public void setClasse(Classe classe) {
-		this.classe = classe;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
+	
+	@Column(name="password")
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+	
+	@Column(name="profil")
+	public int getProfil() {
+		return profil;
+	}
+
+
+	public void setProfil(int profil) {
+		this.profil = profil;
+	}
+	
+	
 }
+
+	

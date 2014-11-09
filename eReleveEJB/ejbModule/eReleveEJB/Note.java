@@ -19,7 +19,12 @@ import javax.persistence.Table;
 public class Note implements Serializable {
 
 	
-	private static final long serialVersionUID = -5960371069728822202L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	private long id;
 	

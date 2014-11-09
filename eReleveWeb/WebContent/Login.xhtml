@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>Page de login</title></h:head> 
+<body> 
+<f:view>
+
+<h:form>
+<h1>Connexion à la page personnelle de la cooperative des bricoleurs</h1>
+	<table>
+			<tr>
+				<td>Pseudo:</td>
+				<td><h:inputText value="#{loginForm.username}" /></td>
+			</tr>
+			<tr>
+				<td>Mot de passe:</td>
+				<td><h:inputSecret value="#{loginForm.password}" /></td>
+			</tr>
+		</table>
+
+	<h:outputText value="Votre pseudo ou votre mot de passe est incorrect" rendered="#{loginForm.error}"/>
+	<br/>
+	<h:commandButton value="Login" action="#{loginForm.verifier}"/>
+	<br/>
+	<h:commandLink action="Register" value="Ou enregistrez-vous" />
+</h:form>
+</f:view>
+</body> 
+</html>

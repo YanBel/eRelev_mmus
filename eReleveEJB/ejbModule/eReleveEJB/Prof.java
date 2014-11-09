@@ -1,29 +1,22 @@
 package eReleveEJB;
 
-
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Classe")
-public class Classe implements Serializable {
+@Table(name="Prof")
+public class Prof implements Serializable {
 
 	
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = -5960371069728822202L;
 
 	private long id;
 	
@@ -31,10 +24,8 @@ public class Classe implements Serializable {
 	private String nom;
 	
 	
-	private String branche;
+	private String prenom;
 	
-	
-	private Ecole ecole;
 	
 	
 	@Id
@@ -61,25 +52,14 @@ public class Classe implements Serializable {
 
 	
 	
-	@Column(name="Branche")
-	public String getBranche() {
-		return branche;
+	@Column(name="Prenom")
+	public String getPrenom() {
+		return prenom;
 	}
 
 
-	public void setBranche(String branche) {
-		this.branche = branche;
-	}
-	
-	
-	@ManyToOne
-	@JoinColumn(name = "Ecole")
-	public Ecole getEcole() {
-		return ecole;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
-	public void setEcole(Ecole ecole) {
-		this.ecole = ecole;
-	}
-	
 }
