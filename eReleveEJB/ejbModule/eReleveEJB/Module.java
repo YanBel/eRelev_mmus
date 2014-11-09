@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -16,7 +18,12 @@ import javax.persistence.Table;
 public class Module implements Serializable {
 
 	
-	private static final long serialVersionUID = -5960371069728822202L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5528552575942140658L;
+
 
 	private long id;
 	
@@ -24,7 +31,7 @@ public class Module implements Serializable {
 	private String nom;
 	
 	
-	private String prof;
+	private Prof prof;
 	
 	
 	
@@ -52,13 +59,14 @@ public class Module implements Serializable {
 
 	
 	
-	@Column(name="Prof")
-	public String getProf() {
+	@ManyToOne
+	@JoinColumn(name = "Prof")
+	public Prof getProf() {
 		return prof;
 	}
 
 
-	public void setProf(String prof) {
+	public void setProf(Prof prof) {
 		this.prof = prof;
 	}
 
