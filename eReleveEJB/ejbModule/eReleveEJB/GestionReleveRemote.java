@@ -14,8 +14,7 @@ public interface GestionReleveRemote {
 	public Note addNote(String note, Eleve eleve, Module module);
 	public User addProf(String nom, String prenom, String email, String password);
 	public List<Eleve> findEleve_nom(String nom);
-	public List<Eleve> findEleve_prenom(String prenom);
-	public List<Eleve> findEleve_classe(Classe classe);
+	public List<Eleve> findEleve_parent(User parent);
 	public List<Eleve> getAllEleves();
 	public User registerUser(String nom, String prenom, String email, String password, int profil);
 	public User checkLogin(String email, String password);

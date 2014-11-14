@@ -47,7 +47,7 @@ public class Module implements Serializable {
 	}
 	
 	
-	@Column(name="Nom")
+	@Column(name="nom")
 	public String getNom() {
 		return nom;
 	}
@@ -60,7 +60,7 @@ public class Module implements Serializable {
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "Prof")
+	@JoinColumn(name = "prof")
 	public Prof getProf() {
 		return prof;
 	}

@@ -100,17 +100,9 @@ public List<Eleve> findEleve_nom(String nom){
 
 
 @SuppressWarnings("unchecked")
-public List<Eleve> findEleve_prenom(String prenom){
-	List<Eleve> list=em.createQuery("SELECT el FROM Eleve el where el.prenom=?1")
-	    	.setParameter(1,prenom)
-	    	.getResultList();
-	return list.isEmpty()? null : list;
-}
-
-@SuppressWarnings("unchecked")
-public List<Eleve> findEleve_classe(Classe classe){
-	List<Eleve> list=em.createQuery("SELECT el FROM Eleve el where el.classe=?1")
-	    	.setParameter(1,classe)
+public List<Eleve> findEleve_parent(User parent){
+	List<Eleve> list=em.createQuery("SELECT el FROM Eleve el where el.parent=?1")
+	    	.setParameter(1,parent)
 	    	.getResultList();
 	return list.isEmpty()? null : list;
 }
@@ -130,6 +122,8 @@ private User findUser(String email){
 	    	.getResultList();
 	return list.isEmpty()? null : list.get(0);
 }
+
+
 
 
 

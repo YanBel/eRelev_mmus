@@ -16,7 +16,7 @@ import javax.ejb.StatefulTimeout;
 
 @Stateful
 @LocalBean
-public class UserFlow implements UserFlowRemote {
+public class ProfFlow implements ProfFlowRemote {
 
 	
 	private State state;
@@ -29,7 +29,7 @@ public class UserFlow implements UserFlowRemote {
     /**
      * Default constructor. 
      */
-    public UserFlow() {
+    public ProfFlow() {
         state=State.UNKNOWN;
         u=null;
     }
@@ -39,6 +39,9 @@ public class UserFlow implements UserFlowRemote {
 	}
 	
     // Pour s'enregistrer
+    
+    // Un prof ne peut s'enregistrer lui même, il 
+    
     public void register(String nom, String prenom, String email, String password){
     	// Assuming state=UNKNOWN - TODO: add a check
     	if(g.isLoginUsed(email)){
@@ -46,7 +49,7 @@ public class UserFlow implements UserFlowRemote {
     		state=State.USERNAME_USED;
     	}
     	else{
-    		g.registerUser(nom, prenom, email, password, 1);
+    		g.registerUser(nom, prenom, email, password, 3);
     		state=State.REGISTERED; 
     		// We could return right here
     		// Instead, we proceed with login

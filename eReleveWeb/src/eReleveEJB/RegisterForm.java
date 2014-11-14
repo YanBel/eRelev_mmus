@@ -1,5 +1,7 @@
 package eReleveEJB;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -17,11 +19,21 @@ public class RegisterForm {
 	private Boolean error;
 	private String errormessage;
 	
-	@ManagedProperty(value="#{userSession.uf}")
+	
+	@ManagedProperty(value="#{userSession}")
+	private UserSession uss;
+	
+	
 	private UserFlow uf;
+	
 	
 	public String register(){
 		if(password1.equals(password2)){
+			
+		if (uss != null){
+			uf= uss.getUf();
+			}
+			
 			uf.register(nom, prenom, username, password1);
 			if(uf.getState()==State.USERNAME_USED){
 				errormessage="Le pseudo est deja pris";
@@ -31,12 +43,15 @@ public class RegisterForm {
 				error=false;
 				return "Perso";
 			}
+			
 		}else{
 			errormessage="Les mots de passe sont differents";
 			error=true;
 			return "Register";
 		}
 	}
+	
+	
 	
 	public String getNom() {
 		return nom;
@@ -71,6 +86,16 @@ public class RegisterForm {
 	public Boolean getError() {
 		return error;
 	}
+	
+	
+	public UserSession getUss() {
+		return uss;
+	}
+
+	public void setUss(UserSession uss) {
+		this.uss = uss;
+	}
+	
 	
 	public UserFlow getUf() {
 		return uf;

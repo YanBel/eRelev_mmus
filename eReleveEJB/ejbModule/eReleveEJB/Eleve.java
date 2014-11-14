@@ -18,7 +18,6 @@ import javax.persistence.Table;
 public class Eleve implements Serializable {
 
 	
-
 	/**
 	 * 
 	 */
@@ -35,6 +34,9 @@ public class Eleve implements Serializable {
 	
 	
 	private String date_naissance;
+	
+	
+	private User parent;
 	
 	
 	private Classe classe;
@@ -94,6 +96,18 @@ public class Eleve implements Serializable {
 
 	public void setClasse(Classe classe) {
 		this.classe = classe;
+	}
+
+	
+	@ManyToOne
+	@JoinColumn(name = "User")
+	public User getParent() {
+		return parent;
+	}
+
+
+	public void setParent(User parent) {
+		this.parent = parent;
 	}
 
 }

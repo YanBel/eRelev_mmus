@@ -21,5 +21,8 @@ public class UserSession {
 		return uf;
 	}
 
+	public void setUf(UserFlow uf) {
+		this.uf= uf;
+	}
 	
 }

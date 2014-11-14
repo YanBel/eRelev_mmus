@@ -1,5 +1,6 @@
 package eReleveEJB;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -21,10 +22,17 @@ public class LoginForm {
     
 	@ManagedProperty(value="#{userSession.uf}")
 	private UserFlow uf;
+		
+	
 	
     public LoginForm(){
     	error=false;
     }
+    
+    
+    @PostConstruct
+	public void init(){
+	}
     
     
 	public String getUsername() {
